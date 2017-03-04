@@ -12,10 +12,15 @@
   border: 1px solid black;
   width:400px;
   height:300px;
+  display:none;
 }
 
 #canvas {
   // display:none;
+  border: 1px solid black;
+  overflow: hidden;
+  background-color: transparent;
+  color:#fff;
 }
 
 .camera {
@@ -46,4 +51,17 @@
   font-size: 16px;
   font-family: "Lucida Grande", "Arial", sans-serif;
   width: 760px;
+}
+
+.buttons, .button{
+  width: 80px;
+  margin: 3px;
+  border: 1px solid black;
+}
+
+.buttons img{
+  width: 80px;
+}
+.tools{
+    display: inline-block;
 }
