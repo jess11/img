@@ -16,6 +16,7 @@
     startbutton = document.getElementById('startbutton');
     savebutton = document.getElementById('savebutton');
     canvas_filename = document.getElementById('canvas_filename');
+    phoneCameraInput = document.getElementById('phoneCameraInput');
 
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
       .then(function(stream) {
@@ -48,6 +49,15 @@
        savephoto();
      }, false);
 
+     phoneCameraInput.addEventListener('change', function(e) {
+       var file = e.target.files[0];
+       // Do something with the image file.
+    
+       var data = URL.createObjectURL(file);
+       photo.setAttribute('src', data);
+
+     });
+
       clearphoto();
 
     }
@@ -78,7 +88,6 @@
        context.drawImage(video, 0, 0, width, height);
 
        var data = canvas.toDataURL('image/png');
-       console.log(data);
        photo.setAttribute('src', data);
      } else {
        clearphoto();
