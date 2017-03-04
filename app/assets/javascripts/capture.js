@@ -52,9 +52,10 @@
      phoneCameraInput.addEventListener('change', function(e) {
        var file = e.target.files[0];
        // Do something with the image file.
-    
-       var data = URL.createObjectURL(file);
-       photo.setAttribute('src', data);
+       file.onload = function(){
+         var data = URL.createObjectURL(file);
+         photo.setAttribute('src', data);
+       }
 
      });
 
