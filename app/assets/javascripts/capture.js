@@ -12,6 +12,7 @@
   function startup() {
     video = document.getElementById('video');
     canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
     photo = document.getElementById('photo');
     startbutton = document.getElementById('startbutton');
     savebutton = document.getElementById('savebutton');
@@ -49,18 +50,24 @@
        savephoto();
      }, false);
 
-     phoneCameraInput.addEventListener('change', function(e) {
-       var file = e.target.files[0];
-       // Do something with the image file.
-       file.onload = function(){
-         var data = URL.createObjectURL(file);
-         photo.setAttribute('src', data);
-       }
-
-     });
+     phoneCameraInput.addEventListener('change', handleImage, false);
 
       clearphoto();
 
+    }
+
+    function handleImage(e){
+      var reader = new FileReader();
+      reader.onload = function(event){
+          var img = new Image();
+          img.onload = function(){
+              canvas.width = img.width;
+              canvas.height = img.height;
+              ctx.drawImage(img,0,0);
+          }
+          img.src = event.target.result;
+      }
+      reader.readAsDataURL(e.target.files[0]);
     }
 
     function savephoto(){
