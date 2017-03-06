@@ -1,22 +1,41 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#video {
-  border: 1px solid black;
-  width:400px;
-  height:300px;
+.app-wrapper{
+  width:90vw;
+  margin: 0 auto;
 }
 
-#photo {
+//gridPhotos partial
+.mainGalleryWrapper{
+  width:90%;
+  margin:0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+//User gallery page
+.userHeading{
+  font-size: 1em;
+}
+.container{
+  display: flex;
+  justify-content: space-around;
+}
+.left{
+
+}
+
+.right{
+
+}
+#video {
   border: 1px solid black;
-  width:400px;
-  height:300px;
-  display:none;
+  width:200px;
+  height:150px;
 }
 
 #canvas {
-  // display:none;
   border: 1px solid black;
   overflow: hidden;
   background-color: transparent;
@@ -24,27 +43,28 @@
 }
 
 .camera {
-  width: 410px;
-  display:inline-block;
+  width: 400px;
 }
 
 .output {
-  width: 410px;
-  display:inline-block;
+  width: 400px;
 }
 
 #startbutton {
   display:block;
   position:relative;
-  margin-left:auto;
-  margin-right:auto;
-  bottom:32px;
-  background-color: rgba(0, 150, 0, 0.5);
+  margin-left: 5px;
+  bottom:40px;
+  background-color: rgba(255, 255, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
   font-size: 14px;
   font-family: "Lucida Grande", "Arial", sans-serif;
   color: rgba(255, 255, 255, 1.0);
+}
+
+#startbutton:hover{
+    background-color: rgba(255, 255, 0, 0.8);
 }
 
 .contentarea {
@@ -54,14 +74,31 @@
 }
 
 .buttons, .button{
-  width: 80px;
+  width: 60px;
   margin: 3px;
   border: 1px solid black;
 }
 
 .buttons img{
-  width: 80px;
+  width: 40px;
+}
+
+.selectedStamp{
+  background-color: black;
+  color: white;
 }
 .tools{
     display: inline-block;
+}
+
+//camera filters
+
+.grayscale {
+  filter: grayscale(1);
+  // filter: brightness(1.2) contrast(1.5) saturate(1);
+}
+
+.sepia {
+
+  filter: sepia(1);
 }

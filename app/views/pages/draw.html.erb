@@ -1,0 +1,66 @@
+
+<div class="container">
+  <div class="left">
+    <div class="camera">
+      <video id="video">Video stream not available.</video>
+      <button id="startbutton">Take photo</button>
+    </div>
+    <label for="select">Filter:</label>
+    <select id="filter">
+      <option value="none">None</option>
+      <option value="sepia">Sepia</option>
+      <option value="grayscale">Grayscale</option>
+    </select>
+    <div class="upload">
+      <input type="file" id="imageLoader" name="imageLoader"/>
+    </div>
+    <div class="save">
+      <input type="text" id="photo_name" required="required"></input>
+      <button id="savebutton">Save to desktop</button>
+      <button id="publishbutton">Publish</button>
+    </div>
+    <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
+
+
+
+
+
+
+  </div>
+
+  <div class="right">
+    <canvas id="canvas">
+    Sorry your browser does not support canvas.
+    </canvas>
+
+  <div class="tools">
+    <div id="text" class= 'button'>Text
+      <input type="color" id="textColor" >
+    </div>
+    <div id="draw" class= 'button'>Draw
+      <input type="color" id="drawColor">
+    </div>
+    <div id="stamp1" class="buttons">
+      <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
+    </div>
+    <div id="stamp2" class="buttons">
+      <img src="assets/dragon.png" alt="stamp2" id="stamp2_">
+    </div>
+    <div id="stamp3" class="buttons">
+      <img src="assets/cat.png" alt="stamp3" id="stamp3_">
+    </div>
+    <div id="stamp4" class="buttons">
+      <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
+    </div>
+  </div>
+
+  <div class="inputTextWrapper">
+    <input type="text" id="inputText" placeholder="Click canvas to add text"></input>
+  </div>
+
+  </div>
+</div>
+
+  <!-- <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box.">
+  </div> -->

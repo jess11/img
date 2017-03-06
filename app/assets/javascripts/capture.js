@@ -1,3 +1,4 @@
+
 if (window.addEventListener) {
    window.addEventListener('load', function() { init(); });
 }
@@ -18,7 +19,7 @@ if (window.addEventListener) {
   var lastStampId='';
   var mouseX;
   var mouseY;
-  var paintSelected;
+  var toolSelected;
 
 
 function init() {
@@ -28,11 +29,16 @@ function init() {
   photo = document.getElementById('photo');
   startbutton = document.getElementById('startbutton');
   savebutton = document.getElementById('savebutton');
-  canvas_filename = document.getElementById('canvas_filename');
+  publishbutton = document.getElementById('publishbutton');
+  // canvas_filename = document.getElementById('canvas_filename');
   imageLoader = document.getElementById('imageLoader');
   stamp = $('.buttons');
   draw = $('#draw');
+  drawColor = $('#drawColor');
+  textColor = $('#textColor');
+  filter = document.getElementById('filter');
 
+  // camera streaming
   navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     .then(function(stream) {
         video.srcObject = stream;
@@ -54,75 +60,120 @@ function init() {
       }
     }, false);
 
+    //filters
+    filter.onchange = function(){
+      video.className = filter.value;
+    }
+
+    //take picture button
     startbutton.addEventListener('click', function(ev){
     takepicture();
     ev.preventDefault();
     }, false);
 
+    //saving photo to Users' computer
     savebutton.addEventListener("click", function(event) {
      event.preventDefault();
      savephoto();
    }, false);
 
+   //saving photo to db and cloudinary
+  publishbutton.addEventListener("click", function(event) {
+    event.preventDefault();
+    publishphoto();
+  }, false);
+
+
+   //loading images from users' computer (and phone?)
    imageLoader.addEventListener('change', handleImage, false);
 
+   //mouse
+   document.getElementById("canvas").style.cursor = "pointer";
 
-   //drawing
+   //draw
    draw.on('click', function(e){
-    paintSelected = true;
+    toolSelected = "draw"
     stampId='';
+
   })
 
+    $('#canvas').mousedown(function(e){
+      //ensures color changes everytime
+      clickX = [];
+      clickY = [];
+      clickDrag = [];
+      mouseX = e.pageX - this.offsetLeft;
+      mouseY = e.pageY - this.offsetTop;
+      if (toolSelected === "draw"){
+      paint = true;
+      addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+      redraw();
+    }
+    });
 
-     $('#canvas').mousedown(function(e){
-       mouseX = e.pageX - this.offsetLeft;
-       mouseY = e.pageY - this.offsetTop;
-       if (paintSelected){
-       paint = true;
-       addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-       redraw();
-     }
-     });
+    $('#canvas').mousemove(function(e){
+      if(toolSelected === "draw" && paint){
+        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        redraw();
+      }
+    });
 
-     $('#canvas').mousemove(function(e){
-       if(paintSelected && paint){
-         addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-         redraw();
-       }
-     });
+    $('#canvas').mouseup(function(e){
+      paint = false;
+      redraw();
+    });
 
-     $('#canvas').mouseup(function(e){
-       paint = false;
-     });
+    $('#canvas').mouseleave(function(e){
+      paint = false;
+    });
+    var buttonClicked;
+    var lastButtonClicked;
 
-     $('#canvas').mouseleave(function(e){
-       paint = false;
-     });
+    // Add class to the selected button that is clicked on
+    $('.tools div').on('click', function(e){checkButton(this.id)});
+    function checkButton(id){
+      buttonClicked = '#' + id;
+      $(lastButtonClicked).removeClass('selectedStamp');
+      $(buttonClicked).addClass('selectedStamp');
+      lastButtonClicked = buttonClicked;
+    }
 
    //stamps
-   canvas.addEventListener('click', onClick, false);
-
    stamp.on('click', function(e){
-     paintSelected = false;
-    onStamp(this.id);
+    toolSelected = 'stamp';
+    id = this.id
+    stampId = '#' + id + '_';
+    lastStampId = stampId;
    })
+
+   canvas.addEventListener('click', onClick, false);
 
    clearphoto();
 
-   //stamps
-   function onStamp(id){
-     stampId = '#' + id + '_';
-     $(lastStampId).removeClass('selectedStamp');
-     $(stampId).addClass('selectedStamp');
-     lastStampId = stampId;
-   }
-
    function onClick(e){
-     if (stampId.length){
+     if (toolSelected==='stamp'){
        ctx.drawImage($(stampId)[0], mouseX - 40, mouseY -40, 100, 100 * ($(stampId)[0].height)/ ($(stampId)[0].width))
      }
    }
+   //Text
+   $('#text').on('click',function(){
+     toolSelected = "text";
+   })
+  $('#canvas').on('click', text);
 
+
+  function text(){
+   if(toolSelected==='text'){
+     str = $('#inputText').val()
+     if(str){
+       ctx.font = '30px sans-serif';
+       ctx.fillStyle=textColor.val();
+       ctx.fillText(str, mouseX, mouseY);
+     }
+    }
+  }
+
+  //Drawing/painting
    function addClick(x, y, dragging)
    {
      clickX.push(x);
@@ -132,21 +183,24 @@ function init() {
 
    function redraw(){
 
+
     //  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clears the canvas
 
-     ctx.strokeStyle = "#000000";
+    ctx.beginPath();
      ctx.lineJoin = "round";
      ctx.lineWidth = 2;
 
      for(var i=0; i < clickX.length; i++) {
-       ctx.beginPath();
+
        if(clickDrag[i] && i){
          ctx.moveTo(clickX[i-1], clickY[i-1]);
         }else{
           ctx.moveTo(clickX[i]-1, clickY[i]);
         }
         ctx.lineTo(clickX[i], clickY[i]);
+
         ctx.closePath();
+        ctx.strokeStyle = drawColor.val();
         ctx.stroke();
      }
    }
@@ -158,8 +212,6 @@ function init() {
     reader.onload = function(event){
       var img = new Image();
       img.onload = function(){
-          canvas.width = img.width;
-          canvas.height = img.height;
           ctx.drawImage(img,0,0);
       }
       img.src = event.target.result;
@@ -171,35 +223,55 @@ function init() {
     canvas.toBlobHD(function(blob) {
       saveAs(
           blob
-        , (canvas_filename.value || canvas_filename.placeholder) + ".png"
+        , (photo_name.value || photo_name.placeholder) + ".png"
       );
     }, "image/png");
 
   }
 
-  function clearphoto() {
-    // var ctx = canvas.getContext('2d');
+  function publishphoto(){
+    $('.image_upload').unbind('cloudinarydone');
+    var data = canvas.toDataURL('image/png');
+    $('.image_upload').cloudinary_fileupload();
+    $('.image_upload').fileupload('option', 'formData').file = data;
+    $('.image_upload').fileupload('add', { files: [ data ] });
+    $('.image_upload').bind('cloudinarydone', function(e, data) {
+      data = data.result.public_id;
+      filename = $('#photo_name').val();
+      $.ajax({
+          url : "/photos",
+          type : "post",
+          data : {
+            photo: {
+              name: filename, image: data
+            }
+          }
+      });
+      return true;
+    });
 
+  }
+// data_value: JSON.stringify(data)
+  function clearphoto() {
     ctx.fillStyle = "#AAA";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
+    // var data = canvas.toDataURL('image/png');
+    // photo.setAttribute('src', data);
   }
 
   function takepicture() {
     clickX = []
     clickY = []
     clickDrag = []
-
-   if (width && height) {
+    if (width && height) {
      canvas.width = width;
      canvas.height = height;
+     ctx.filter = filter.value +"(1)";
      ctx.drawImage(video, 0, 0, width, height);
-
      var data = canvas.toDataURL('image/png');
-     photo.setAttribute('src', data);
-   } else {
+    //  photo.setAttribute('src', data);
+    } else {
      clearphoto();
-   }
- }
+    }
+  }
 }
