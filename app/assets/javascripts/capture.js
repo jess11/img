@@ -4,7 +4,6 @@
 if (window.addEventListener) {
    window.addEventListener('load', function() { init(); });
 }
-  canvas = document.getElementById('canvas');
   var width = 400;
   var height = 0;
 
@@ -42,13 +41,6 @@ function init() {
   drawColor = $('#drawColor');
   textColor = $('#textColor');
   filter = document.getElementById('filter');
-  var clickEvent = (function() {
-    if ('ontouchstart' in document.documentElement === true)
-      return 'touchstart';
-    else
-      return 'click';
-    })();
-
 
   // camera streaming
   navigator.mediaDevices.getUserMedia({ video: true, audio: false })
@@ -103,7 +95,7 @@ function init() {
    document.getElementById("canvas").style.cursor = "pointer";
 
    //draw
-   draw.on(clickEvent, function(e){
+   draw.on('click', function(e){
     toolSelected = "draw"
     stampId='';
 
@@ -141,9 +133,8 @@ function init() {
     var buttonClicked;
     var lastButtonClicked;
 
-
     // Add class to the selected button that is clicked on
-    $('.tools div div').on(clickEvent, function(e){checkButton(this.id)});
+    $('.tools div div').on('click', function(e){checkButton(this.id)});
     function checkButton(id){
       buttonClicked = '#' + id;
       $(lastButtonClicked).removeClass('selectedStamp');
@@ -152,14 +143,14 @@ function init() {
     }
 
    //stamps
-   stamp.on(clickEvent, function(e){
+   stamp.on('click', function(e){
     toolSelected = 'stamp';
     id = this.id
     stampId = '#' + id + '_';
     lastStampId = stampId;
    })
 
-   canvas.addEventListener(clickEvent, onClick, false);
+   canvas.addEventListener('click', onClick, false);
 
 
 
@@ -171,10 +162,10 @@ function init() {
      }
    }
    //Text
-   $('#text').on(clickEvent,function(){
+   $('#text').on('click',function(){
      toolSelected = "text";
    })
-  $('#canvas').on(clickEvent, text);
+  $('#canvas').on('click', text);
 
 
   function text(){
@@ -251,14 +242,14 @@ function init() {
     $('.image_upload').fileupload('option', 'formData').file = data;
     $('.image_upload').fileupload('add', { files: [ data ] });
     $('.image_upload').bind('cloudinarydone', function(e, data) {
-      data = data.result.public_id;
-      filename = $('#photo_name').val();
+      var datas = data.result.public_id;
+      var filenames = $('#photo_name').val();
       $.ajax({
           url : "/photos",
           type : "post",
           data : {
             photo: {
-              name: filename, image: data
+              name: filenames, image: datas
             }
           }
       });
