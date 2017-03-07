@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="drawContainer">
   <div class="left">
     <div class="camera">
       <video id="video">Video stream not available.</video>
@@ -11,16 +11,21 @@
       <option value="sepia">Sepia</option>
       <option value="grayscale">Grayscale</option>
     </select>
+
     <div class="upload">
-      <input type="file" id="imageLoader" name="imageLoader"/>
+      <span class="boldFont">Upload your own file:</span> <input type="file" id="imageLoader" name="imageLoader" />
     </div>
+
+
+
     <div class="save">
-      <input type="text" id="photo_name" required="required"></input>
-      <button id="savebutton">Save to desktop</button>
-      <button id="publishbutton">Publish</button>
+      <span class="boldFont">Photo name:</span>
+      <input type="text" id="photo_name" required="required" class="form-control"></input>
+      <button id="savebutton" class="btn btn-default">Save to desktop</button>
+      <button id="publishbutton" class="btn btn-default">Publish</button>
     </div>
     <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
-
+    <div class="drawAlert"></div>
 
 
 
@@ -29,11 +34,17 @@
   </div>
 
   <div class="right">
+    <div>
     <canvas id="canvas">
     Sorry your browser does not support canvas.
     </canvas>
+    <div class="inputTextWrapper">
+      <input type="text" id="inputText" placeholder="Click on canvas to add text" class="form-control"></input>
+    </div>
+  </div>
 
   <div class="tools">
+    <div>
     <div id="text" class= 'button'>Text
       <input type="color" id="textColor" >
     </div>
@@ -44,22 +55,37 @@
       <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
     </div>
     <div id="stamp2" class="buttons">
-      <img src="assets/dragon.png" alt="stamp2" id="stamp2_">
+      <img src="assets/couple.png" alt="stamp2" id="stamp2_">
     </div>
     <div id="stamp3" class="buttons">
-      <img src="assets/cat.png" alt="stamp3" id="stamp3_">
+      <img src="assets/heart.png" alt="stamp3" id="stamp3_">
     </div>
+  </div>
+  <div>
+
     <div id="stamp4" class="buttons">
       <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
     </div>
+    <div id="stamp5" class="buttons">
+      <img src="assets/captain.png" alt="stamp5" id="stamp5_">
+    </div>
+    <div id="stamp6" class="buttons">
+      <img src="assets/dark.png" alt="stamp6" id="stamp6_">
+    </div>
+    <div id="stamp7" class="buttons">
+      <img src="assets/pow.png" alt="stamp7" id="stamp7_">
+    </div>
+    <div id="stamp8" class="buttons">
+      <img src="assets/blue.png" alt="stamp8" id="stamp8_">
+    </div>
+  </div>
   </div>
 
-  <div class="inputTextWrapper">
-    <input type="text" id="inputText" placeholder="Click canvas to add text"></input>
   </div>
 
-  </div>
+
 </div>
+
 
   <!-- <div class="output">
     <img id="photo" alt="The screen capture will appear in this box.">

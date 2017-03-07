@@ -1,4 +1,6 @@
 
+
+
 if (window.addEventListener) {
    window.addEventListener('load', function() { init(); });
 }
@@ -23,6 +25,8 @@ if (window.addEventListener) {
 
 
 function init() {
+
+
   video = document.getElementById('video');
   canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
@@ -130,7 +134,7 @@ function init() {
     var lastButtonClicked;
 
     // Add class to the selected button that is clicked on
-    $('.tools div').on('click', function(e){checkButton(this.id)});
+    $('.tools div div').on('click', function(e){checkButton(this.id)});
     function checkButton(id){
       buttonClicked = '#' + id;
       $(lastButtonClicked).removeClass('selectedStamp');
@@ -147,6 +151,8 @@ function init() {
    })
 
    canvas.addEventListener('click', onClick, false);
+
+
 
    clearphoto();
 
@@ -247,13 +253,18 @@ function init() {
             }
           }
       });
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      $('#photo_name').val('');
+      $('.drawAlert').html("Photo published!")
+      setTimeout(function(){ $('.drawAlert').html("")}, 3000);
+
       return true;
     });
 
   }
 // data_value: JSON.stringify(data)
   function clearphoto() {
-    ctx.fillStyle = "#AAA";
+    ctx.fillStyle = "#FFF";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     // var data = canvas.toDataURL('image/png');
     // photo.setAttribute('src', data);
@@ -274,4 +285,7 @@ function init() {
      clearphoto();
     }
   }
+
+
+
 }

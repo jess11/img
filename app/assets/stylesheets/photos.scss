@@ -1,16 +1,37 @@
+
+//gridPhotos partial
+.mainGalleryWrapper{
+  width:90%;
+  margin:0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .photo{
   width: 200px;
   height: 150px;
   background-size: contain;
-  border: 3px solid rgba(0,0,0,0.8);
+  border: 2px solid rgba(0,0,0,0.8);
   margin: 1em;
   background-color: white;
 }
 
 .photo:hover{
-  border: 3px solid rgba(0,0,0,1);
+  border: 2px solid rgba(0,0,0,1);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .image_upload{
   visibility: hidden;
+}
+
+.photoLabel{
+  text-align: right;
+  position: relative;
+  top: 120px;
+  left: -10px;
+  font-style: italic;
+  font-weight: bold;
+
 }

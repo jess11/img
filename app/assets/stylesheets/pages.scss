@@ -6,13 +6,6 @@
   margin: 0 auto;
 }
 
-//gridPhotos partial
-.mainGalleryWrapper{
-  width:90%;
-  margin:0 auto;
-  display: flex;
-  justify-content: flex-start;
-}
 
 //User gallery page
 .userHeading{
@@ -21,13 +14,41 @@
 .container{
   display: flex;
   justify-content: space-around;
+
 }
 .left{
-
+  width:205px;
 }
 
 .right{
+    width:543px;
+    display: flex;
+}
 
+//Draw page
+
+.drawContainer{
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.drawAlert{
+  background-color: rgba(255,255,0,1);
+}
+
+.upload{
+  margin: 1em 0;
+}
+
+.boldFont{
+  font-weight: bold;
+}
+
+#photo_name{
+  margin-bottom: 0.5em;
 }
 #video {
   border: 1px solid black;
@@ -75,12 +96,18 @@
 
 .buttons, .button{
   width: 60px;
+  height: 60px;
   margin: 3px;
   border: 1px solid black;
+  overflow: hidden;
+  text-align: center;
 }
 
 .buttons img{
-  width: 40px;
+  height: 100%;
+}
+.inputTextWrapper{
+  display: block;
 }
 
 .selectedStamp{
@@ -88,7 +115,9 @@
   color: white;
 }
 .tools{
-    display: inline-block;
+    display:flex;
+    flex-wrap: wrap;
+
 }
 
 //camera filters
