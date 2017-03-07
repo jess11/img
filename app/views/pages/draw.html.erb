@@ -13,7 +13,7 @@
     </select>
 
     <div class="upload">
-      <span class="boldFont">Upload your own file:</span> <input type="file" id="imageLoader" name="imageLoader" />
+      <span class="boldFont">Upload your own file:</span> <input type="file" id="imageLoader" name="file"  />
     </div>
 
 
@@ -26,9 +26,6 @@
     </div>
     <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
     <div class="drawAlert"></div>
-
-
-
 
 
   </div>
