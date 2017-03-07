@@ -1,6 +1,15 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body a{
+  color: #333;
+}
+
+body a:hover{
+  color: #333;
+}
+
+
 .app-wrapper{
   width:90vw;
   margin: 0 auto;
@@ -57,7 +66,7 @@
 }
 
 #canvas {
-  border: 1px solid black;
+  border: 2px solid black;
   overflow: hidden;
   background-color: transparent;
   color:#fff;
@@ -101,6 +110,11 @@
   border: 1px solid black;
   overflow: hidden;
   text-align: center;
+  border-radius: 10px;
+}
+
+.buttons:hover, .button:hover{
+  background-color: rgba(255, 255, 0, 1);
 }
 
 .buttons img{
@@ -111,8 +125,7 @@
 }
 
 .selectedStamp{
-  background-color: black;
-  color: white;
+  background-color: rgba(255, 255, 0, 1);
 }
 .tools{
     display:flex;

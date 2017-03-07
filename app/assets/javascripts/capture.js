@@ -42,6 +42,13 @@ function init() {
   drawColor = $('#drawColor');
   textColor = $('#textColor');
   filter = document.getElementById('filter');
+  var clickEvent = (function() {
+    if ('ontouchstart' in document.documentElement === true)
+      return 'touchstart';
+    else
+      return 'click';
+    })();
+
 
   // camera streaming
   navigator.mediaDevices.getUserMedia({ video: true, audio: false })
@@ -96,7 +103,7 @@ function init() {
    document.getElementById("canvas").style.cursor = "pointer";
 
    //draw
-   draw.on('click', function(e){
+   draw.on(clickEvent, function(e){
     toolSelected = "draw"
     stampId='';
 
@@ -134,12 +141,6 @@ function init() {
     var buttonClicked;
     var lastButtonClicked;
 
-    var clickEvent = (function() {
-  if ('ontouchstart' in document.documentElement === true)
-    return 'touchstart';
-  else
-    return 'click';
-})();
 
     // Add class to the selected button that is clicked on
     $('.tools div div').on(clickEvent, function(e){checkButton(this.id)});
@@ -170,10 +171,10 @@ function init() {
      }
    }
    //Text
-   $('#text').on('click',function(){
+   $('#text').on(clickEvent,function(){
      toolSelected = "text";
    })
-  $('#canvas').on('click', text);
+  $('#canvas').on(clickEvent, text);
 
 
   function text(){

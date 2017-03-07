@@ -35,7 +35,18 @@
   font-weight: bold;
 }
 
-.photoLabel p{
+
+.photoGalleryLabel{
+  text-align: right;
+  position: relative;
+  top: 100px;
+  left: -10px;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+.photoLabel p, .photoGalleryLabel p{
   display: inline-block;
   background-color: rgba(255, 255, 0, 1);
 }
@@ -44,4 +55,5 @@
   position: relative;
   left:175px;
   top: 5px;
+  color: #333;
 }
