@@ -1,5 +1,8 @@
 <div class="mainGalleryWrapper">
   <% @photos.each do |photo| %>
-      <div style='background-image: url( "http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>")', class="photo"></div>
+      <div style='background-image: url( "http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>")', class="photo">
+      <span class="glyphicon glyphicon-remove delete" aria-hidden="true"></span>
+
+      </div>
   <% end %>
 </div>

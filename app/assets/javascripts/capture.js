@@ -4,6 +4,7 @@
 if (window.addEventListener) {
    window.addEventListener('load', function() { init(); });
 }
+  canvas = document.getElementById('canvas');
   var width = 400;
   var height = 0;
 
@@ -133,8 +134,15 @@ function init() {
     var buttonClicked;
     var lastButtonClicked;
 
+    var clickEvent = (function() {
+  if ('ontouchstart' in document.documentElement === true)
+    return 'touchstart';
+  else
+    return 'click';
+})();
+
     // Add class to the selected button that is clicked on
-    $('.tools div div').on('click', function(e){checkButton(this.id)});
+    $('.tools div div').on(clickEvent, function(e){checkButton(this.id)});
     function checkButton(id){
       buttonClicked = '#' + id;
       $(lastButtonClicked).removeClass('selectedStamp');
@@ -143,14 +151,14 @@ function init() {
     }
 
    //stamps
-   stamp.on('click', function(e){
+   stamp.on(clickEvent, function(e){
     toolSelected = 'stamp';
     id = this.id
     stampId = '#' + id + '_';
     lastStampId = stampId;
    })
 
-   canvas.addEventListener('click', onClick, false);
+   canvas.addEventListener(clickEvent, onClick, false);
 
 
 

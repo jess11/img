@@ -2,7 +2,7 @@
 <div class="mainGalleryWrapper">
   <% @photos.each do |photo| %>
       <div style='background-image: url( "http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>")', class="photo">
-      <div class="photoLabel">'<%=photo.name%>' - <%=photo.user.name%></div>
+      <div class="photoLabel"><p>'<%=photo.name%>' - <%=photo.user.name%></p></div>
     </div>
 
   <% end %>
