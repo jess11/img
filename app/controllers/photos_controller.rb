@@ -5,9 +5,17 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = @current_user.photos.new photo_params
-    if @photo.save
-      render :json => []
+    if @current_user.present?
+      @photo = @current_user.photos.new photo_params
+      if @photo.save
+        render :json => []
+      end
+    else
+      @photo = Photo.new photo_params
+      @photo.user_id = nil
+      if @photo.save
+        render :json => []
+      end
     end
 
   end

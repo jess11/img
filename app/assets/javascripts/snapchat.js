@@ -1,5 +1,5 @@
 
-$('.pages.draw').ready(function () {
+$('.pages.face').ready(function () {
 
 
 
@@ -13,6 +13,7 @@ if (window.addEventListener) {
 
   var video = null;
   var canvas = null;
+  var canvas2 = null;
   var photo = null;
   var startbutton = null;
   var clickX = []
@@ -29,9 +30,14 @@ if (window.addEventListener) {
 function init() {
 
 
-  video = document.getElementById('video');
+  video = document.createElement('video');
   canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
+
+  canvas2 = document.getElementById('canvas2');
+  context2 = canvas2.getContext('2d');
+
+
   photo = document.getElementById('photo');
   startbutton = document.getElementById('startbutton');
   savebutton = document.getElementById('savebutton');
@@ -43,16 +49,151 @@ function init() {
   drawColor = $('#drawColor');
   textColor = $('#textColor');
   filter = document.getElementById('filter');
+  maskDropdown = document.getElementById('masks');
 
   // camera streaming
   navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     .then(function(stream) {
-        video.srcObject = stream;
-        video.play();
+        // video.srcObject = stream;
+        // video.play();
+        video.src = (window.URL && window.URL.createObjectURL) ? window.URL.createObjectURL(stream) : stream;
+        processWebcamVideo();
     })
     .catch(function(err) {
         console.log("An error occured! " + err);
     });
+
+    var mask = new Image();
+    var maskImage = $('#masks').val();
+    mask.src = "/assets/" + maskImage + ".png";
+
+
+    function processWebcamVideo() {
+      var startTime = +new Date(),
+             changed = false,
+             scaleFactor = 1,
+             faces;
+
+      context2.drawImage(video, 0, 0, canvas2.width, canvas2.height);
+
+      function drawFrame() {
+        context2.drawImage(video, 0, 0, canvas2.width, canvas2.height);
+        setTimeout(drawFrame, 20);
+      }
+
+      maskDropdown.onchange = function(){
+        maskImage = $('#masks').val();
+        mask.src = "/assets/" + maskImage + ".png";
+      }
+
+      faces = detectFaces();
+
+      function detectFaces() {
+        return ccv.detect_objects({canvas : (ccv.pre(canvas2)), cascade: cascade, interval: 2, min_neighbors: 1});
+      }
+
+      if (maskImage === "catEars"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width * 0.5, face.y - face.height*0.8, face.width * 2, face.height * 1.3);
+          }
+        }
+      }
+
+      if (maskImage === "whiskers"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width*0.5, face.y , face.width * 2, face.height * 1.3);
+          }
+        }
+      }
+
+      if (maskImage === "witchhat"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width*0.5, face.y - face.height *1.2, face.width * 2, face.height * 1.4);
+          }
+        }
+      }
+
+      if (maskImage === "wolverine"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width*0.4, face.y - face.height * 0.7, face.width * 1.8, face.height * 1.4);
+          }
+        }
+      }
+
+      if (maskImage === "ironman"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width*0.4, face.y - face.height * 0.4, face.width * 2.1, face.height * 1.8);
+          }
+        }
+      }
+
+      if (maskImage === "sunglasses"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x - face.width*0.1 , face.y + face.height*0.2 , face.width * 1.2, face.height * 0.5);
+          }
+        }
+      }
+
+      if (maskImage === "moustache"){
+        drawMasks(faces);
+
+        function drawMasks(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x  , face.y + face.height*0.7 , face.width * 1, face.height * 0.2);
+          }
+        }
+      }
+
+
+
+      setTimeout(processWebcamVideo, 80);
+    };
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
@@ -60,8 +201,8 @@ function init() {
 
         video.setAttribute('width', width);
         video.setAttribute('height', height);
-        canvas.setAttribute('width', width);
-        canvas.setAttribute('height', height);
+        canvas2.setAttribute('width', width);
+        canvas2.setAttribute('height', height);
         streaming = true;
       }
     }, false);
@@ -280,7 +421,7 @@ function init() {
      canvas.width = width;
      canvas.height = height;
      ctx.filter = filter.value +"(1)";
-     ctx.drawImage(video, 0, 0, width, height);
+     ctx.drawImage(canvas2, 0, 0, width, height);
      var data = canvas.toDataURL('image/png');
     //  photo.setAttribute('src', data);
     } else {

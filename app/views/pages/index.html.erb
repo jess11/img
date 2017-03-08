@@ -1,9 +1,12 @@
-<h1 class="heading">emoFACE</h1>
+
+<div class="headingAnimation">
+  <h1 class="heading">emoFACE</h1>
+</div>
 <div class="mainGalleryWrapper">
   <% @photos.each do |photo| %>
-  <a class="example-image-link" href="http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>" data-lightbox="photoimages" data-title="<%=photo.name%> by <%=photo.user.name%>">
+  <a class="example-image-link" href="http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>" data-lightbox="photoimages" data-title="<%=photo.name%><% if photo.user != nil %> by <%=photo.user.name%><%end%>">
       <div style='background-image: url( "http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>")', class="photo">
-      <div class="photoLabel"><p>'<%=photo.name%>' - <%=photo.user.name%></p></div>
+      <div class="photoLabel"><p>'<%=photo.name%>'<% if photo.user != nil %> - <%=photo.user.name%><%end%></p></div>
     </div>
   </a>
   <% end %>
