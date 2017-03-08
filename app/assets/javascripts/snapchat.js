@@ -93,9 +93,9 @@ function init() {
       }
 
       if (maskImage === "catEars"){
-        drawMasks(faces);
+        drawMasks1(faces);
 
-        function drawMasks(faces) {
+        function drawMasks1(faces) {
           if(!faces) {
               return false;
           }
@@ -107,9 +107,9 @@ function init() {
       }
 
       if (maskImage === "whiskers"){
-        drawMasks(faces);
+        drawMasks2(faces);
 
-        function drawMasks(faces) {
+        function drawMasks2(faces) {
           if(!faces) {
               return false;
           }
@@ -121,9 +121,9 @@ function init() {
       }
 
       if (maskImage === "witchhat"){
-        drawMasks(faces);
+        drawMasks3(faces);
 
-        function drawMasks(faces) {
+        function drawMasks3(faces) {
           if(!faces) {
               return false;
           }
@@ -135,9 +135,9 @@ function init() {
       }
 
       if (maskImage === "wolverine"){
-        drawMasks(faces);
+        drawMasks4(faces);
 
-        function drawMasks(faces) {
+        function drawMasks4(faces) {
           if(!faces) {
               return false;
           }
@@ -149,9 +149,9 @@ function init() {
       }
 
       if (maskImage === "ironman"){
-        drawMasks(faces);
+        drawMasks5(faces);
 
-        function drawMasks(faces) {
+        function drawMasks5(faces) {
           if(!faces) {
               return false;
           }
@@ -163,9 +163,9 @@ function init() {
       }
 
       if (maskImage === "sunglasses"){
-        drawMasks(faces);
+        drawMasks6(faces);
 
-        function drawMasks(faces) {
+        function drawMasks6(faces) {
           if(!faces) {
               return false;
           }
@@ -176,19 +176,19 @@ function init() {
         }
       }
 
-      // if (maskImage === "moustache"){
-      //   drawMasks(faces);
-      //
-      //   function drawMasks(faces) {
-      //     if(!faces) {
-      //         return false;
-      //     }
-      //     for (var i = 0; i < faces.length; i++) {
-      //         var face = faces[i];
-      //         context2.drawImage(mask, face.x  , face.y + face.height*0.7 , face.width * 1, face.height * 0.2);
-      //     }
-      //   }
-      // }
+      if (maskImage === "moustache"){
+        drawMasks7(faces);
+
+        function drawMasks7(faces) {
+          if(!faces) {
+              return false;
+          }
+          for (var i = 0; i < faces.length; i++) {
+              var face = faces[i];
+              context2.drawImage(mask, face.x  , face.y + face.height*0.7 , face.width * 1, face.height * 0.2);
+          }
+        }
+      }
 
 
 
