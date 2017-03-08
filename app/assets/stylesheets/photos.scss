@@ -1,25 +1,31 @@
 
 //gridPhotos partial
 .mainGalleryWrapper{
-  width:90%;
+  width:100%;
   margin:0 auto;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
+.heading{
+  font-size: 5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
 .photo{
-  width: 200px;
-  height: 150px;
-  background-size: contain;
-  border: 2px solid rgba(0,0,0,0.8);
-  margin: 1em;
+  height: 220px;
+  width: 220px;
+  background-size: cover;
+  background-position: center;
+  margin: 2px;
   background-color: white;
 }
 
 .photo:hover{
-  border: 2px solid rgba(0,0,0,1);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+  // border: 2px solid rgba(0,0,0,1);
+  // box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .image_upload{
@@ -27,33 +33,26 @@
 }
 
 .photoLabel{
-  text-align: right;
-  position: relative;
-  top: 120px;
-  left: -10px;
-  font-style: italic;
-  font-weight: bold;
+  color: white;
+  padding: 1em 1em 0.5em 1em;
+  background-color: rgba(0,0,0,0.5);
 }
 
-
-.photoGalleryLabel{
-  text-align: right;
-  position: relative;
-  top: 100px;
-  left: -10px;
-  font-style: italic;
-  font-weight: bold;
-
+.artistLabel{
+  font-size: 14px;
 }
 
-.photoLabel p, .photoGalleryLabel p{
-  display: inline-block;
-  background-color: rgba(255, 255, 0, 1);
+.nameLabel{
+  font-size: 16px;
+
+}
+.example-image-link{
+  text-decoration: none;
 }
 
 .delete {
   position: relative;
-  left:175px;
-  top: 5px;
-  color: #333;
+  left:195px;
+  top: 10px;
+  color: rgba(255,255,255,0.8);
 }
