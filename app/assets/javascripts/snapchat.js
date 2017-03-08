@@ -100,7 +100,7 @@ function init() {
               return false;
           }
           for (var i = 0; i < faces.length; i++) {
-              face = faces[i];
+              var face = faces[i];
               context2.drawImage(mask, face.x - face.width * 0.5, face.y - face.height*0.8, face.width * 2, face.height * 1.3);
           }
         }
@@ -114,7 +114,7 @@ function init() {
               return false;
           }
           for (var i = 0; i < faces.length; i++) {
-              face = faces[i];
+              var face = faces[i];
               context2.drawImage(mask, face.x - face.width*0.5, face.y , face.width * 2, face.height * 1.3);
           }
         }
@@ -176,19 +176,19 @@ function init() {
         }
       }
 
-      if (maskImage === "moustache"){
-        drawMasks(faces);
-
-        function drawMasks(faces) {
-          if(!faces) {
-              return false;
-          }
-          for (var i = 0; i < faces.length; i++) {
-              var face = faces[i];
-              context2.drawImage(mask, face.x  , face.y + face.height*0.7 , face.width * 1, face.height * 0.2);
-          }
-        }
-      }
+      // if (maskImage === "moustache"){
+      //   drawMasks(faces);
+      //
+      //   function drawMasks(faces) {
+      //     if(!faces) {
+      //         return false;
+      //     }
+      //     for (var i = 0; i < faces.length; i++) {
+      //         var face = faces[i];
+      //         context2.drawImage(mask, face.x  , face.y + face.height*0.7 , face.width * 1, face.height * 0.2);
+      //     }
+      //   }
+      // }
 
 
 
