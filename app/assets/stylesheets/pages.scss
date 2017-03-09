@@ -53,11 +53,11 @@ a:hover{
 
 }
 .left{
-  width:205px;
+  width:330px;
 }
 
 .left2{
-  width:410px;
+  width:330px;
 }
 
 .right{
@@ -91,10 +91,12 @@ a:hover{
 #photo_name{
   margin-bottom: 0.5em;
 }
+
 #video {
-  border: 1px solid black;
+  // border: 1px solid #ccc;
   width:300px;
   height:225px;
+  border-radius: 4px;
 }
 
 
@@ -102,21 +104,22 @@ a:hover{
 #canvas {
   width: 404px;
   height: 304px;
-  border: 2px solid black;
+  border: 1px solid #555;
   overflow: hidden;
   background-color: transparent;
   color:#fff;
+  border-radius: 4px;
 }
 
 
 
 #canvas2 {
-  width: 400px;
-  height: 300px;
-  border: 2px solid black;
+  width:300px;
+  height:225px;
   overflow: hidden;
   background-color: transparent;
   color:#fff;
+  border-radius: 4px;
 }
 
 .camera {
@@ -130,7 +133,7 @@ a:hover{
 #startbutton {
   display:block;
   position:relative;
-  margin-left: 5px;
+  margin-left: 110px;
   bottom:40px;
   background-color: rgba(0, 188, 212,0.4);
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -154,17 +157,18 @@ a:hover{
   width: 60px;
   height: 60px;
   margin: 3px;
-  border: 1px solid black;
+  // border: 1px solid #555;
   overflow: hidden;
   text-align: center;
   border-radius: 10px;
   margin-bottom: 5px;
-    box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
 }
 
 .buttons:hover, .button:hover{
-  // background-color: rgba(255, 255, 0, 1);
-  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+
+  // box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.8);
 }
 
 .buttons img{
@@ -175,8 +179,8 @@ a:hover{
 }
 
 .selectedStamp{
-  background-color: rgba(0, 0, 0, 1);
-  color:white;
+    // background-color: rgba(0, 188, 212,0.2);
+  box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.8);
 }
 .tools{
     display:flex;
@@ -197,4 +201,8 @@ a:hover{
 .sepia {
 
   filter: sepia(1);
+}
+
+#masks{
+  margin-right: 1em;
 }

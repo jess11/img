@@ -1,17 +1,16 @@
 
 <div class="sessionContainer">
-  <div class="yellowBlock">
-    
-  </div>
   <div class="sessionWrapper">
-    <h1>Login</h1>
+
 
     <% if flash[:error].present? %>
       <p><%= flash[:error] %></p>
     <% end %>
 
     <%= form_tag login_path do%>
+
       <div class="form-group session">
+        <h1 class="sessionHeading">Login</h1>
         <%= label_tag 'Email' %>
         <%= email_field_tag :email, nil, :class => "form-control" %>
 

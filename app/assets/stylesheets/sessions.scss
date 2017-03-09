@@ -5,33 +5,45 @@
 
 //login
 .sessionContainer{
+  margin-top: 5em;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sessionWrapper{
 
 }
-.sessionWrapper{
-  margin-left: 2em;
-  width: 20em;
+
+.sessionHeading{
+  font-size: 2em;
+  color: #555;
+  text-align: center;
+  padding-top: -1.5em;
+  padding-bottom: 0.5em;
 }
 .session label, .sessionBtn{
   margin-top: 0.5em;
+  color: #555;
 }
 
 .sessionBtn{
   width:100%;
-  margin-top: 1em;
-  background-color: rgba(255,255,0,1)
+  color: #555;
+  height:45px;
+  margin-top: 1.5em;
 }
 
+.form-group.session{
+  // border: 1px solid #ccc;
+  padding: 3em;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  width: 350px;
+
+}
 .btn.btn-default:hover{
-  background-color: rgba(255,230,10,1)
-}
-
-
-.yellowBlock{
-  width: 35vw;
-  height: 115vh;
-  margin-left: -10vw;
-  margin-top: -15vh;
-  background-color: rgba(255,255,0,1);
-
+  // background-color: rgba(0, 188, 212, 1)
 }

@@ -1,10 +1,7 @@
 
 <div class="sessionContainer">
-  <div class="yellowBlock">
-
-  </div>
   <div class="sessionWrapper">
-    <h1>Sign up</h1>
+
 
     <% if @user.errors.any? %>
       <ol>
@@ -16,6 +13,7 @@
 
       <%= form_for @user do |f| %>
       <div class="form-group session">
+        <h1 class="sessionHeading">Sign up</h1>
         <%= f.label :name %>
         <%= f.text_field :name, :required => true, :class => "form-control"  %>
 
