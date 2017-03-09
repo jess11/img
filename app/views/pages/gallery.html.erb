@@ -1,4 +1,5 @@
 <div class="headingAnimation">
-  <h1 class="heading2 lead">My Gallery - <%= @current_user.name %></h1>
+  <h1 class="heading2 lead">My Gallery</h1>
+  <p class="galleryName lead"><%= @current_user.name %></p>
 </div>
 <%= render :partial => 'pages/gridPhotos' %>

@@ -83,6 +83,8 @@ a:hover{
 .canvasContainer{
   display: flex;
   flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
 }
 .toolbar{
   margin-bottom: 2em;
@@ -209,6 +211,7 @@ a:hover{
 
 .inputTextWrapper{
   display: block;
+  margin-bottom: 1em;
 }
 
 

@@ -6,6 +6,7 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-bottom: 4em;
 }
 
 .heading{
@@ -59,4 +60,8 @@
   border-radius: 50%;
   padding: 3px;
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.galleryName{
+  margin-top: -2em;
 }
