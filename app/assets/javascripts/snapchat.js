@@ -43,12 +43,11 @@ function init() {
   savebutton = document.getElementById('savebutton');
   publishbutton = document.getElementById('publishbutton');
   // canvas_filename = document.getElementById('canvas_filename');
-  imageLoader = document.getElementById('imageLoader');
+
   stamp = $('.buttons');
   draw = $('#draw');
   drawColor = $('#drawColor');
   textColor = $('#textColor');
-  filter = document.getElementById('filter');
   maskDropdown = document.getElementById('masks');
 
   // camera streaming
@@ -207,10 +206,6 @@ function init() {
       }
     }, false);
 
-    //filters
-    filter.onchange = function(){
-      video.className = filter.value;
-    }
 
     //take picture button
     startbutton.addEventListener('click', function(ev){
@@ -229,10 +224,6 @@ function init() {
     event.preventDefault();
     publishphoto();
   }, false);
-
-
-   //loading images from users' computer (and phone?)
-   imageLoader.addEventListener('change', handleImage, false);
 
    //mouse
    document.getElementById("canvas").style.cursor = "pointer";
@@ -420,7 +411,6 @@ function init() {
     if (width && height) {
      canvas.width = width;
      canvas.height = height;
-     ctx.filter = filter.value +"(1)";
      ctx.drawImage(canvas2, 0, 0, width, height);
      var data = canvas.toDataURL('image/png');
     //  photo.setAttribute('src', data);
