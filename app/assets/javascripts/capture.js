@@ -136,7 +136,7 @@ function init() {
     var lastButtonClicked;
 
     // Add class to the selected button that is clicked on
-    $('.tools div div').on('click', function(e){checkButton(this.id)});
+    $('.tools div').on('click', function(e){checkButton(this.id)});
     function checkButton(id){
       buttonClicked = '#' + id;
       $(lastButtonClicked).removeClass('selectedStamp');

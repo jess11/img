@@ -54,5 +54,9 @@
   position: relative;
   left:195px;
   top: 10px;
-  color: rgba(255,255,255,0.8);
+  color: rgba(0,0,0,1);
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  padding: 3px;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 }
