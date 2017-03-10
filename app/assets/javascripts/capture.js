@@ -280,7 +280,7 @@ function init() {
      canvas.width = width;
      canvas.height = height;
      ctx.filter = filter.value +"(1)";
-     ctx.drawImage(video, 0, 0, width, height);
+     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
      var data = canvas.toDataURL('image/png');
     //  photo.setAttribute('src', data);
     } else {
