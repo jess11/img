@@ -34,6 +34,7 @@ With 'Image Maker' people can take a photo, draw on it and publish it onto the w
 * Make the CSS/ design better
 * Add more drawing functionalities
 * Tests
+* Pagination
 
 N.B. Currently not working on iOS phones as webRTC is not available. However there is news that it will soon be included in the iOS webkit.
 

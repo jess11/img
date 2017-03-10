@@ -77,7 +77,7 @@ function init() {
 
       function drawFrame() {
         context2.drawImage(video, 0, 0, canvas2.width, canvas2.height);
-        setTimeout(drawFrame, 20);
+        setTimeout(drawFrame, 50);
       }
 
       maskDropdown.onchange = function(){
