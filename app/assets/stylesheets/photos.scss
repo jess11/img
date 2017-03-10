@@ -2,9 +2,8 @@
 //gridPhotos partial
 .mainGalleryWrapper{
   width:100%;
-  margin:0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 4em;
 }
@@ -15,8 +14,8 @@
   margin-top: 0.5em;
 }
 .photo{
-  height: 220px;
-  width: 220px;
+  height: 215px;
+  width: 215px;
   background-size: cover;
   background-position: center;
   margin: 2px;
