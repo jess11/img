@@ -13,6 +13,7 @@
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
+
 .photo{
   height: 215px;
   width: 215px;
@@ -20,12 +21,6 @@
   background-position: center;
   margin: 2px;
   background-color: white;
-}
-
-.photo:hover{
-
-  // border: 2px solid rgba(0,0,0,1);
-  // box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .image_upload{
@@ -44,8 +39,8 @@
 
 .nameLabel{
   font-size: 16px;
-
 }
+
 .example-image-link{
   text-decoration: none;
 }

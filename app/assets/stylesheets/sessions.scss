@@ -1,7 +1,3 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 //login
 .sessionContainer{
@@ -11,10 +7,6 @@
   align-items: center;
 }
 
-.sessionWrapper{
-
-}
-
 .sessionHeading{
   font-size: 2em;
   color: #555;
@@ -22,6 +14,7 @@
   padding-top: -1.5em;
   padding-bottom: 0.5em;
 }
+
 .session label, .sessionBtn{
   margin-top: 0.5em;
   color: #555;
@@ -35,15 +28,10 @@
 }
 
 .form-group.session{
-  // border: 1px solid #ccc;
   padding: 3em;
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
   width: 350px;
-
-}
-.btn.btn-default:hover{
-  // background-color: rgba(0, 188, 212, 1)
 }

@@ -2,13 +2,11 @@
 <div class="sessionContainer">
   <div class="sessionWrapper">
 
-
     <% if flash[:error].present? %>
       <p><%= flash[:error] %></p>
     <% end %>
 
     <%= form_tag login_path do%>
-
       <div class="form-group session">
         <h1 class="sessionHeading">Login</h1>
         <%= label_tag 'Email' %>
@@ -20,6 +18,6 @@
         <%= submit_tag 'Login', :class=>"btn btn-default sessionBtn" %>
       </div>
     <% end %>
-  </div>
 
+  </div>
 </div>

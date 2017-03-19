@@ -1,86 +1,77 @@
-
-
-
 <div class="headingAnimation">
   <h1 class="heading2 lead">Draw</h1>
 </div>
 
-
 <div class="pages draw">
 
+  <div class="drawContainer">
 
+    <div class="left">
+      <div class="camera">
+        <video id="video">Video stream not available.</video>
+        <button id="startbutton">Take photo</button>
+      </div>
 
-<div class="drawContainer">
-  <div class="left">
-    <div class="camera">
-      <video id="video">Video stream not available.</video>
-      <button id="startbutton">Take photo</button>
+      <label for="select">Filter:</label>
+      <select id="filter">
+        <option value="none">None</option>
+        <option value="sepia">Sepia</option>
+        <option value="grayscale">Grayscale</option>
+      </select>
+
+      <div class="upload">
+        <span class="boldFont">Upload your own file:</span>
+        <input type="file" id="imageLoader"/>
+      </div>
+      <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
     </div>
-    <label for="select">Filter:</label>
-    <select id="filter">
-      <option value="none">None</option>
-      <option value="sepia">Sepia</option>
-      <option value="grayscale">Grayscale</option>
-    </select>
 
-
-    <div class="upload">
-      <span class="boldFont">Upload your own file:</span> <input type="file" id="imageLoader" />
-    </div>
-    <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
-
-  </div>
-
-  <div class="right">
-
-
-    <div class="toolbar">
-      <div class="tools">
-        <div id="text" class= 'button'>Text
-          <input type="color" id="textColor" >
-        </div>
-        <div id="draw" class= 'button'>Draw
-          <input type="color" id="drawColor">
-        </div>
-        <div id="stamp1" class="buttons">
-          <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
-        </div>
-        <div id="stamp2" class="buttons">
-          <img src="assets/couple.png" alt="stamp2" id="stamp2_">
-        </div>
-        <div id="stamp3" class="buttons">
-          <img src="assets/heart.png" alt="stamp3" id="stamp3_">
-        </div>
-        <div id="stamp4" class="buttons">
-          <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
-        </div>
-        <div id="stamp5" class="buttons">
-          <img src="assets/captain.png" alt="stamp5" id="stamp5_">
-        </div>
-        <div id="stamp6" class="buttons">
-          <img src="assets/burger.png" alt="stamp6" id="stamp6_">
-        </div>
-        <div id="stamp7" class="buttons">
-          <img src="assets/pow.png" alt="stamp7" id="stamp7_">
-        </div>
-        <div id="stamp8" class="buttons">
-          <img src="assets/blue.png" alt="stamp8" id="stamp8_">
+    <div class="right">
+      <div class="toolbar">
+        <div class="tools">
+          <div id="text" class= 'button'>Text
+            <input type="color" id="textColor" >
+          </div>
+          <div id="draw" class= 'button'>Draw
+            <input type="color" id="drawColor">
+          </div>
+          <div id="stamp1" class="buttons">
+            <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
+          </div>
+          <div id="stamp2" class="buttons">
+            <img src="assets/couple.png" alt="stamp2" id="stamp2_">
+          </div>
+          <div id="stamp3" class="buttons">
+            <img src="assets/heart.png" alt="stamp3" id="stamp3_">
+          </div>
+          <div id="stamp4" class="buttons">
+            <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
+          </div>
+          <div id="stamp5" class="buttons">
+            <img src="assets/captain.png" alt="stamp5" id="stamp5_">
+          </div>
+          <div id="stamp6" class="buttons">
+            <img src="assets/burger.png" alt="stamp6" id="stamp6_">
+          </div>
+          <div id="stamp7" class="buttons">
+            <img src="assets/pow.png" alt="stamp7" id="stamp7_">
+          </div>
+          <div id="stamp8" class="buttons">
+            <img src="assets/blue.png" alt="stamp8" id="stamp8_">
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="canvasContainer">
-    <div>
-      <canvas id="canvas">
-      Sorry your browser does not support canvas.
-      </canvas>
-      <div class="inputTextWrapper">
-        <input type="text" id="inputText" placeholder="Enter text here" class="form-control"></input>
-      </div>
-    </div>
-    <div>
-
+      <div class="canvasContainer">
+        <div>
+          <canvas id="canvas">
+          Sorry your browser does not support canvas.
+          </canvas>
+          <div class="inputTextWrapper">
+            <input type="text" id="inputText" placeholder="Enter text here" class="form-control"></input>
+          </div>
+        </div>
+      <div>
 
       <div class="save">
         <span class="boldFont">Photo name:</span>
@@ -89,21 +80,8 @@
         <button id="publishbutton" class="btn btn-default">Publish</button>
       </div>
 
-
       <div class="drawAlert"></div>
-
     </div>
 
   </div>
-
-
-
-  </div>
-
-
 </div>
-</div>
-
-  <!-- <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
-  </div> -->

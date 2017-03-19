@@ -1,8 +1,6 @@
 
 <div class="sessionContainer">
   <div class="sessionWrapper">
-
-
     <% if @user.errors.any? %>
       <ol>
         <% @user.errors.full_messages.each do |msg| %>
@@ -11,7 +9,7 @@
       </ol>
     <% end %>
 
-      <%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
       <div class="form-group session">
         <h1 class="sessionHeading">Sign up</h1>
         <%= f.label :name %>
@@ -28,7 +26,7 @@
 
         <%= f.submit 'Signup', :class=>"btn btn-default sessionBtn" %>
       </div>
-
     <% end %>
+    
   </div>
 </div>

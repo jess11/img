@@ -2,100 +2,86 @@
   <h1 class="heading2 lead">Masks</h1>
 </div>
 
-
 <div class="pages face">
+  <div class="drawContainer">
 
-<div class="drawContainer">
-  <div class="left2">
-    <canvas id="canvas2">
-    Sorry your browser does not support canvas.
-    </canvas>
-    <div class="camera">
+    <div class="left2">
+      <canvas id="canvas2">
+      Sorry your browser does not support canvas.
+      </canvas>
+      <div class="camera">
+        <button id="startbutton">Take photo</button>
+      </div>
 
-
-      <button id="startbutton">Take photo</button>
+      <label for="select">Masks:</label>
+      <select id="masks">
+        <option value="catEars">Cat Ears</option>
+        <option value="whiskers">Whiskers</option>
+        <option value="moustache">Moustache</option>
+        <option value="sunglasses">Sunglasses</option>
+        <option value="witchhat">Witch Hat</option>
+        <option value="wolverine">Wolverine</option>
+        <option value="ironman">Iron Man</option>
+      </select>
+      <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
     </div>
 
-    <label for="select">Masks:</label>
-    <select id="masks">
-      <option value="catEars">Cat Ears</option>
-      <option value="whiskers">Whiskers</option>
-      <option value="moustache">Moustache</option>
-      <option value="sunglasses">Sunglasses</option>
-      <option value="witchhat">Witch Hat</option>
-      <option value="wolverine">Wolverine</option>
-      <option value="ironman">Iron Man</option>
-    </select>
+    <div class="right">
+      <div class="toolbar">
+        <div class="tools">
+          <div id="text" class= 'button'>Text
+            <input type="color" id="textColor" >
+          </div>
+          <div id="draw" class= 'button'>Draw
+            <input type="color" id="drawColor">
+          </div>
+          <div id="stamp1" class="buttons">
+            <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
+          </div>
+          <div id="stamp2" class="buttons">
+            <img src="assets/couple.png" alt="stamp2" id="stamp2_">
+          </div>
+          <div id="stamp3" class="buttons">
+            <img src="assets/heart.png" alt="stamp3" id="stamp3_">
+          </div>
+          <div id="stamp4" class="buttons">
+            <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
+          </div>
+          <div id="stamp5" class="buttons">
+            <img src="assets/captain.png" alt="stamp5" id="stamp5_">
+          </div>
+          <div id="stamp6" class="buttons">
+            <img src="assets/burger.png" alt="stamp6" id="stamp6_">
+          </div>
+          <div id="stamp7" class="buttons">
+            <img src="assets/pow.png" alt="stamp7" id="stamp7_">
+          </div>
+          <div id="stamp8" class="buttons">
+            <img src="assets/blue.png" alt="stamp8" id="stamp8_">
+          </div>
+        </div>
+      </div>
 
+      <div class="canvasContainer">
+        <div>
+          <canvas id="canvas">
+          Sorry your browser does not support canvas.
+          </canvas>
+          <div class="inputTextWrapper">
+            <input type="text" id="inputText" placeholder="Click on canvas to add text" class="form-control"></input>
+          </div>
+        </div>
+        <div>
+          <div class="save">
+            <span class="boldFont">Photo name:</span>
+            <input type="text" id="photo_name" required="required" class="form-control"></input>
+            <button id="savebutton" class="btn btn-default">Save to desktop</button>
+            <button id="publishbutton" class="btn btn-default">Publish</button>
+          </div>
+          <div class="drawAlert"></div>
+        </div>
+      </div>
 
-
-
-
-    <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
-
-
-
+    </div>
   </div>
-
-  <div class="right">
-    <div class="toolbar">
-      <div class="tools">
-        <div id="text" class= 'button'>Text
-          <input type="color" id="textColor" >
-        </div>
-        <div id="draw" class= 'button'>Draw
-          <input type="color" id="drawColor">
-        </div>
-        <div id="stamp1" class="buttons">
-          <img src="assets/hatsune.png" alt="stamp1" id="stamp1_">
-        </div>
-        <div id="stamp2" class="buttons">
-          <img src="assets/couple.png" alt="stamp2" id="stamp2_">
-        </div>
-        <div id="stamp3" class="buttons">
-          <img src="assets/heart.png" alt="stamp3" id="stamp3_">
-        </div>
-        <div id="stamp4" class="buttons">
-          <img src="assets/patcheye.png" alt="stamp4" id="stamp4_">
-        </div>
-        <div id="stamp5" class="buttons">
-          <img src="assets/captain.png" alt="stamp5" id="stamp5_">
-        </div>
-        <div id="stamp6" class="buttons">
-          <img src="assets/burger.png" alt="stamp6" id="stamp6_">
-        </div>
-        <div id="stamp7" class="buttons">
-          <img src="assets/pow.png" alt="stamp7" id="stamp7_">
-        </div>
-        <div id="stamp8" class="buttons">
-          <img src="assets/blue.png" alt="stamp8" id="stamp8_">
-        </div>
-      </div>
-    </div>
-
-    <div class="canvasContainer">
-      <div>
-        <canvas id="canvas">
-        Sorry your browser does not support canvas.
-        </canvas>
-        <div class="inputTextWrapper">
-          <input type="text" id="inputText" placeholder="Click on canvas to add text" class="form-control"></input>
-        </div>
-      </div>
-      <div>
-        <div class="save">
-          <span class="boldFont">Photo name:</span>
-          <input type="text" id="photo_name" required="required" class="form-control"></input>
-          <button id="savebutton" class="btn btn-default">Save to desktop</button>
-          <button id="publishbutton" class="btn btn-default">Publish</button>
-        </div>
-        <div class="drawAlert"></div>
-      </div>
-
-
 </div>
-</div>
-
-  <!-- <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
-  </div> -->

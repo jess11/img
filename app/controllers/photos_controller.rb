@@ -1,6 +1,4 @@
 class PhotosController < ApplicationController
-
-
   def new
   end
 
@@ -17,7 +15,6 @@ class PhotosController < ApplicationController
         render :json => []
       end
     end
-
   end
 
   def destroy
@@ -25,9 +22,10 @@ class PhotosController < ApplicationController
     photo.destroy
     redirect_to :back
   end
-end
 
-private
-def photo_params
-    params.require(:photo).permit(:name, :user_id, :image)
+  private
+  def photo_params
+      params.require(:photo).permit(:name, :user_id, :image)
+  end
+  
 end

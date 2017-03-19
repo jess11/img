@@ -2,8 +2,6 @@
   <% @photos.each do |photo| %>
       <div style='background-image: url( "http://res.cloudinary.com/kryx11/image/upload/<%=photo.image%>")', class="photo">
           <%= link_to photo_path(:id => photo.id), :method => 'delete', :class =>"userGalleryDelete", :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-remove delete" aria-hidden="true"></i><% end %>
-          <!-- <div class="photoGalleryLabel lead"><p><%=photo.name%></p></div> -->
-
       </div>
   <% end %>
 </div>
