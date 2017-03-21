@@ -219,6 +219,10 @@ a:hover{
 }
 
 //camera filters
+
+.filterDropDown{
+  display: block;
+}
 .grayscale {
   filter: grayscale(1);
 }

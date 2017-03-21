@@ -1,5 +1,5 @@
 <div class="headingAnimation">
-  <h1 class="heading2 lead">Masks</h1>
+  <h1 class="heading2 lead steps">Step 1: Take a photo</h1>
 </div>
 
 <div class="pages face">
@@ -15,6 +15,7 @@
 
       <label for="select">Masks:</label>
       <select id="masks">
+        <option value="none">None</option>
         <option value="catEars">Cat Ears</option>
         <option value="whiskers">Whiskers</option>
         <option value="moustache">Moustache</option>
@@ -23,6 +24,14 @@
         <option value="wolverine">Wolverine</option>
         <option value="ironman">Iron Man</option>
       </select>
+      <div class="filterDropDown">
+        <label for="select">Filter:</label>
+        <select id="filter">
+          <option value="none">None</option>
+          <option value="sepia">Sepia</option>
+          <option value="grayscale">Grayscale</option>
+        </select>
+      </div>
       <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
     </div>
 
@@ -60,6 +69,7 @@
             <img src="assets/blue.png" alt="stamp8" id="stamp8_">
           </div>
         </div>
+
       </div>
 
       <div class="canvasContainer">

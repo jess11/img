@@ -11,8 +11,7 @@
 <body>
   <nav class= "navbar-fixed-top">
     <%= link_to "Home", root_path , :class=>"navBtn" %>
-    <%= link_to "Draw", draw_path , :class=>"navBtn"%>
-    <%= link_to "Masks", masks_path , :class=>"navBtn"%>
+    <%= link_to "Start", start_path , :class=>"navBtn"%>
     <% if @current_user.present? %>
       <%= link_to "My Gallery", gallery_path , :class=>"navBtn"%>
       <%= link_to "Logout #{@current_user.name}", login_path, :method => 'delete', :class=>"navBtn" %>
