@@ -50,7 +50,7 @@ $('.pages.draw').ready(function () {
       })
       .catch(function(err) {
           console.log("An error occured! " + err);
-          $('.draw').html('<p> Sorry your browser does not support WebRTC. Try opening this website on a desktop computer in Chrome.</p>')
+          $('.draw').html('<p> Sorry your browser does not support WebRTC. Try opening this website on a desktop computer in Chrome.' + err + '</p>')
       });
 
     video.addEventListener('canplay', function(ev){
