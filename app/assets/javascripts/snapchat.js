@@ -60,6 +60,7 @@ function init() {
     })
     .catch(function(err) {
         console.log("An error occured! " + err);
+        $('.draw').html('<p> Sorry, ' + err + '</p>');
     });
 
     var mask = new Image();
@@ -105,7 +106,7 @@ function init() {
         }
       }
 
-      if (maskImage === "whiskers"){
+      else if (maskImage === "whiskers"){
         drawMasks2(faces);
 
         function drawMasks2(faces) {
@@ -119,7 +120,7 @@ function init() {
         }
       }
 
-      if (maskImage === "witchhat"){
+      else if (maskImage === "witchhat"){
         drawMasks3(faces);
 
         function drawMasks3(faces) {
@@ -133,7 +134,7 @@ function init() {
         }
       }
 
-      if (maskImage === "wolverine"){
+      else if (maskImage === "wolverine"){
         drawMasks4(faces);
 
         function drawMasks4(faces) {
@@ -147,7 +148,7 @@ function init() {
         }
       }
 
-      if (maskImage === "ironman"){
+      else if (maskImage === "ironman"){
         drawMasks5(faces);
 
         function drawMasks5(faces) {
@@ -161,7 +162,7 @@ function init() {
         }
       }
 
-      if (maskImage === "sunglasses"){
+      else if (maskImage === "sunglasses"){
         drawMasks6(faces);
 
         function drawMasks6(faces) {
@@ -175,7 +176,7 @@ function init() {
         }
       }
 
-      if (maskImage === "moustache"){
+      else if (maskImage === "moustache"){
         drawMasks7(faces);
 
         function drawMasks7(faces) {
@@ -209,6 +210,8 @@ function init() {
 
     //take picture button
     startbutton.addEventListener('click', function(ev){
+    $('.left2').css('display','none');
+    $('.right').css('display','block');
     takepicture();
     ev.preventDefault();
     }, false);

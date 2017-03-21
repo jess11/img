@@ -50,7 +50,7 @@ $('.pages.draw').ready(function () {
       })
       .catch(function(err) {
           console.log("An error occured! " + err);
-          $('.draw').html('<p> Sorry your browser does not support WebRTC. Try opening this website on a desktop computer in Chrome.' + err + '</p>')
+          $('.draw').html('<p> Sorry, ' + err + '</p>')
       });
 
     video.addEventListener('canplay', function(ev){
@@ -72,6 +72,8 @@ $('.pages.draw').ready(function () {
     //take picture button
     startbutton.addEventListener('click', function(ev){
       takepicture();
+      $('.left').css('display','none');
+      $('.right').css('display','block');
       ev.preventDefault();
     }, false);
 
@@ -87,9 +89,11 @@ $('.pages.draw').ready(function () {
       publishphoto();
     }, false);
 
-
-    //loading images from users' computer (and phone?)
-    imageLoader.addEventListener('change', handleImage, false);
+    //take another photo from the editing page
+    $('#anotherPhotoButton').on('click',function(){
+      $('.left').css('display','block');
+      $('.right').css('display','none');
+    })
 
     //mouse
     document.getElementById("canvas").style.cursor = "pointer";

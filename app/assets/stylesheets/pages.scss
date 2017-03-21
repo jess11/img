@@ -69,22 +69,31 @@ a:hover{
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  display:none;
 }
 
 //Draw page
 .canvasContainer{
   display: flex;
   flex-direction: row;
-  display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
+
 .toolbar{
   margin-bottom: 2em;
-
 }
 
 .save{
-  margin-left: 1em;
+  padding:0 2em 0 2em 0;
+  max-width: 15em;
+}
+
+
+
+#anotherPhotoButton, #savebutton, #publishbutton{
+  margin-top: 2em;
+  width: 100%;
 }
 
 .drawContainer{

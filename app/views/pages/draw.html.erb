@@ -19,10 +19,6 @@
         <option value="grayscale">Grayscale</option>
       </select>
 
-      <div class="upload">
-        <span class="boldFont">Upload your own file:</span>
-        <input type="file" id="imageLoader"/>
-      </div>
       <%= cl_image_upload_tag :image, :html => {:class => "image_upload"}%>
     </div>
 
@@ -74,14 +70,13 @@
       <div>
 
       <div class="save">
-        <span class="boldFont">Photo name:</span>
+        <span class="boldFont">Photo name: (optional)</span>
         <input type="text" id="photo_name" required="required" class="form-control"></input>
         <button id="savebutton" class="btn btn-default">Save to desktop</button>
         <button id="publishbutton" class="btn btn-default">Publish</button>
+        <button id="anotherPhotoButton" class="btn btn-primary">Take another photo</button>
+        <div class="drawAlert"></div>
       </div>
-
-      <div class="drawAlert"></div>
-    </div>
 
   </div>
 </div>
