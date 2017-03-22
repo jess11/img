@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'pages#index'
+  get '/photos' => 'pages#photos'
   get '/start' => 'pages#start'
   get '/gallery' => 'pages#gallery'
   resources :users, :only => [:new,:create]

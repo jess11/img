@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Image Maker</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= cloudinary_js_config %>
@@ -9,17 +10,35 @@
 
 </head>
 <body>
-  <nav class= "navbar-fixed-top">
-    <%= link_to "Home", root_path , :class=>"navBtn" %>
-    <%= link_to "Start", start_path , :class=>"navBtn"%>
-    <% if @current_user.present? %>
-      <%= link_to "My Gallery", gallery_path , :class=>"navBtn"%>
-      <%= link_to "Logout #{@current_user.name}", login_path, :method => 'delete', :class=>"navBtn" %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path , :class=>"navBtn"%>
-      <%= link_to "Login", login_path, :class=>"navBtn" %>
-    <% end %>
-  </nav>
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path, :class=>"navBtn navbar-brand" do%><i class="glyphicon glyphicon-home" aria-hidden="true"></i><%end%>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Photos", photos_path %></li>
+        <li><%= link_to "Start", start_path %></li>
+
+        <% if @current_user.present? %>
+          <li><%= link_to "My Gallery", gallery_path%></li>
+          <li><%= link_to "Logout #{@current_user.name}", login_path, :method => 'delete' %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path%></li>
+          <li><%= link_to "Login", login_path%></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 <div class="app-wrapper">
   <%= yield %>
 </div>
