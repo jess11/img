@@ -22,21 +22,26 @@
   margin: 1em;
   background-color: white;
   border: 0.8em solid rgb(248, 248, 248);
+  transition-duration: 0.9s;
+}
+
+.photo:hover{
+  border-color: rgb(200, 200, 200);
 }
 
 .homePhoto{
-  width: 300px;
-  height: 300px;
+  width: 28vw;
+  height: 28vw;
   background-size: cover;
   background-position: center;
-  background-color: white;
-  border: 0.8em solid rgb(240,240,240);
+  border: 0.7em solid rgb(240,240,240);
   margin: 4em auto 0 auto;
   display: inline-block;
+  -webkit-backface-visibility: hidden;
 }
 
 .homeWrapper{
-  width: 950px;
+  width: 90vw;
   margin: 0 auto;
 }
 
